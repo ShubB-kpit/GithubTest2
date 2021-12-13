@@ -1,6 +1,10 @@
 pipeline {
     agent any
-    stage('Stage 1') {
-        echo 'hello'
+    stages {
+        stage('Welcome Step') {
+            steps { 
+                echo 'Welcome to LambdaTest'
+            }
+        }
     }
 }
