@@ -16,7 +16,9 @@ pipeline {
             }
         }
         stage('build myB') {
-            build '../gitTest2_repo/myB'
+            steps {
+                build '../gitTest2_repo/myB'
+            }
         }
     }
 }
