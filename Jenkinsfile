@@ -17,7 +17,7 @@ pipeline {
         }
         stage('build myB') {
             steps {
-                build '../gitTest2_repo/myB'
+                build wait: false, job: '../gitTest2_repo/myB'
             }
         }
     }
