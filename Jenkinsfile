@@ -12,8 +12,11 @@ pipeline {
                 echo 'added cd text file'
                 bat("date /t > txtdate.txt")
                 echo 'added data text file'
-                echo "path: ${RUN_DISPLAY_URL}"
+                echo "path: ${JOB_URL}"
             }
+        }
+        stage('build myB') {
+            build '../gitTest2_repo/myB'
         }
     }
 }
