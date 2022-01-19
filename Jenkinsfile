@@ -10,7 +10,7 @@ pipeline {
             steps {
                 bat("cd > ./branch2_1/txtcd.txt")
                 echo 'added cd text file'
-                bat("data \t > txtdate.txt")
+                bat("date \t > txtdate.txt")
                 echo 'added data text file'
             }
         }
