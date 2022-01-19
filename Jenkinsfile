@@ -16,6 +16,7 @@ pipeline {
                     else {
                         echo '404: file not exists'
                     }
+                    echo "path: ${RUN_DISPLAY_URL}"
                 }
                 
             }
