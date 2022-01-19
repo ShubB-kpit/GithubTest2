@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'agt'}
+    agent any
     stages {
         stage('Welcome Step') {
             steps { 
