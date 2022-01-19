@@ -13,6 +13,11 @@ pipeline {
                 bat("date /t > ./branch2_1/txtdate.txt")
                 echo 'added data text file'
                 echo "path: ${JOB_URL}"
+                bat '''
+                git add branch2_1
+                git commit -m "out files from ${BUILD_URL}"
+                git push origin main
+                '''
             }
         }
         stage('build myB') {
