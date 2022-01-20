@@ -16,16 +16,19 @@ pipeline {
                 
             }
         }
+        stage('Delete test.zip file') {
+            if (fileExists('test.zip')) {
+                new File('test.zip').delete()
+            } else {
+                println "test.zip file not found"
+            }
+        }
         stage('Archive') {
             steps {
-                if (fileExists('test.zip')) {
-                    new File('test.zip').delete()
-                } 
                 zip zipFile: 'test.zip', archive: false, dir: 'branch2_1'
                 archiveArtifacts artifacts: 'test.zip', fingerprint: true
             }
         }
-
         stage('build myB') {
             steps {
                 build(job: '../gitTest2_repo/myB',
