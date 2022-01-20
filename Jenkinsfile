@@ -16,7 +16,8 @@ pipeline {
         }
         stage('Demo library') {
             steps {
-                echo 'Start of pipeline'
+                echo 'Hello world'
+                sayHello 'Dave'
             }
         }
         /*
