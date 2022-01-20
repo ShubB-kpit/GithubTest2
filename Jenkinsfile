@@ -47,7 +47,6 @@ pipeline {
                 }
             }
         }
-        /*
         stage('Archive') {
             steps {
                 zip zipFile: 'test.zip', archive: false, dir: 'branch2_1'
