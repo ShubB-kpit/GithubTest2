@@ -25,7 +25,11 @@ pipeline {
             }
         }
         stage('copy files from main branch') {
-            bat("copy ${dataFromBuildPath}/txt*.txt ./branch2_1")
+            steps {
+                script {
+                    bat("copy ${dataFromBuildPath}/txt*.txt ./branch2_1")
+                }
+            }
         }
     }
 }
