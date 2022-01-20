@@ -2,10 +2,10 @@ pipeline {
     parameters {
         string(name: 'artName',
                 defaultValue: '',
-                description: 'name of archive'),
+                description: 'name of archive')
         string(name: 'prjName',
                 defaultValue: '',
-                description: 'name of project'),
+                description: 'name of project')
         string(name: 'buildNo',
                 defaultValue: '',
                 description: 'number of build')
