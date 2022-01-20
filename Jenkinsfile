@@ -1,5 +1,5 @@
 pipeline {
-    parameter {
+    parameters {
         string(name: 'dataFromBuildPath',
                 defaultValue: 'http://192.168.29.68:8080/job/gitTest2_repo/job/main/11/execution/node/3/ws/branch2_1',
                 description: 'Please give the workspace path of main')
