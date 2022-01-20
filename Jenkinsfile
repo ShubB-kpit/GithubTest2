@@ -21,7 +21,7 @@ pipeline {
         stage('Demo library') {
             steps {
                 echo 'Hello world'
-                sayHello
+                sayHello 'shubham'
             }
         }
         /*
