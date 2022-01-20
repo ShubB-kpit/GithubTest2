@@ -18,6 +18,9 @@ pipeline {
         }
         stage('Archive') {
             steps {
+                if (fileExists('test.zip')) {
+                    new File('test.zip').delete()
+                } 
                 zip zipFile: 'test.zip', archive: false, dir: 'branch2_1'
                 archiveArtifacts artifacts: 'test.zip', fingerprint: true
             }
