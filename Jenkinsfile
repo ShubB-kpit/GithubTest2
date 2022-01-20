@@ -16,10 +16,19 @@ pipeline {
                 
             }
         }
+        stage('Archive') {
+            steps {
+                zip zipFile: 'test.zip', archive: false, dir: 'branch2_1'
+                archiveArtifacts artifacts: 'test.zip', fingerprint: true
+            }
+        }
+
         stage('build myB') {
             steps {
                 build(job: '../gitTest2_repo/myB',
-                      parameters: [string(name: 'dataFromBuildPath', value: "${BUILD_URL}/execution/node/3/ws/branch2_1")],
+                      parameters: [string(name: 'artName', value: 'test.zip'),
+                                  string(name: 'prjName', value: "${JOB_NAME}"),
+                                  string(name: 'buildNo', value: "${BUILD_NUMBER}")],
                       wait: false, 
                       propagate: false
                      )
