@@ -27,9 +27,9 @@ pipeline {
         }
         stage('create samples files') {
             steps {
-                bat("cd > ./branch2_1/txtcd.txt")
+                sh("cd > ./branch2_1/txtcd.txt")
                 echo 'added cd text file'
-                bat("date /t > ./branch2_1/txtdate.txt")
+                sh("date /t > ./branch2_1/txtdate.txt")
                 echo 'added data text file'
                 echo "path: ${JOB_URL}"
                 
