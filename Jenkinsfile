@@ -16,9 +16,18 @@ pipeline {
                 
             }
         }
+        stage('check if zip file exists'){
+            steps {
+                script {
+                    if(fileExists('./test.zip')) {
+                        echo 'zip file exists'
+                        new File('./test.zip').delete()
+                    }
+                }
+            }
+        }
         stage('Archive') {
             steps {
-                fileOperations([fileDeleteOperation(excludes: '', includes: 'test.zip')])
                 zip zipFile: 'test.zip', archive: false, dir: 'branch2_1'
                 archiveArtifacts artifacts: 'test.zip', fingerprint: true
             }
