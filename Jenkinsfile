@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Archive') {
             steps {
-                fileOperations([script.fileDeleteOperation(excludes: '', includes: 'test.zip')])
+                fileOperations([fileDeleteOperation(excludes: '', includes: 'test.zip')])
                 zip zipFile: 'test.zip', archive: false, dir: 'branch2_1'
                 archiveArtifacts artifacts: 'test.zip', fingerprint: true
             }
