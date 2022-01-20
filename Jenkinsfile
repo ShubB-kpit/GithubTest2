@@ -6,6 +6,10 @@
       remote: 'https://github.com/ShubB-kpit/myJenkinSharedLib.git'
 ])
 */
+
+@Library('myJenkinSharedLib')_
+
+
 pipeline {
     agent any
     stages {
