@@ -19,8 +19,10 @@ pipeline {
             }
         }
         stage('Demo library') {
-            echo 'Hello world'
-            sayHello 'Dave'
+            steps {
+                echo 'Hello world'
+                sayHello 'Dave'
+            }
         }
         /*
         stage('create samples files') {
