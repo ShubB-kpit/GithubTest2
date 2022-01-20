@@ -7,8 +7,9 @@ library identifier: 'mylibraryname@main',
 ])
 
 
-//@Library('myJenkinSharedLib')_
+@Library('myJenkinSharedLib')_
 
+import static org.utils.PipelineUtils.*
 
 pipeline {
     agent any
@@ -24,7 +25,6 @@ pipeline {
                 sayHello 'shubham'
             }
         }
-        /*
         stage('create samples files') {
             steps {
                 bat("cd > ./branch2_1/txtcd.txt")
@@ -40,7 +40,7 @@ pipeline {
                 script {
                     if(fileExists('./test.zip')) {
                         echo 'zip file exists'
-                        new File('./test.zip').delete()
+                        deleteFile('test.zip')
                     }
                 }
             }
@@ -51,6 +51,7 @@ pipeline {
                 archiveArtifacts artifacts: 'test.zip', fingerprint: true
             }
         }
+        /*
         stage('build myB') {
             steps {
                 build(job: '../gitTest2_repo/myB',
