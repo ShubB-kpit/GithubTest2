@@ -49,8 +49,10 @@ pipeline {
         }
         stage('Archive') {
             steps {
-                zip zipFile: 'test.zip', archive: false, dir: 'branch2_1'
-                archiveArtifacts artifacts: 'test.zip', fingerprint: true
+                script {
+                    zip zipFile: 'test.zip', archive: false, dir: 'branch2_1'
+                    archiveArtifacts artifacts: 'test.zip', fingerprint: true
+                }
             }
         }
         /*
