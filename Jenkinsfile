@@ -7,7 +7,7 @@
 ])
 */
 
-@Library('myJenkinSharedLib@main')_
+@Library('myJenkinSharedLib')
 import static org.utils.PipelineUtils.*
 
 
