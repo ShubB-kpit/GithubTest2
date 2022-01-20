@@ -6,10 +6,10 @@ library identifier: 'mylibraryname@main',
       remote: 'https://github.com/ShubB-kpit/myJenkinSharedLib.git'
 ])
 
-/*
-@Library('myJenkinSharedLib')_
+
+//@Library('myJenkinSharedLib')_
 import static org.utils.PipelineUtils.*
-*/
+
 
 pipeline {
     agent any
