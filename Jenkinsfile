@@ -1,7 +1,7 @@
 pipeline {
     parameters {
         string(name: 'dataFromBuildPath',
-                defaultValue: 'http://192.168.29.68:8080/job/gitTest2_repo/job/main/11/execution/node/3/ws/branch2_1',
+                defaultValue: 'job/gitTest2_repo/job/main/11/execution/node/3/ws/branch2_1',
                 description: 'Please give the workspace path of main')
     }
     agent any
@@ -20,14 +20,16 @@ pipeline {
                     else {
                         echo '404: file not exists'
                     }
-                    echo "path: ${RUN_DISPLAY_URL}"
+                    echo "JOB_NAME: ${JOB_NAME}"
+                    echo "WORKSPACE: ${WORKSPACE}"
                 }   
             }
         }
         stage('copy files from main branch') {
             steps {
                 script {
-                    bat("copy ${params.dataFromBuildPath}/txt*.txt ./branch2_1")
+                    echo "param: ${params.dataFromBuildPath}"
+                    //bat("copy ${params.dataFromBuildPath}/txt*.txt ./branch2_1")
                 }
             }
         }
