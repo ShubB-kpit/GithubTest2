@@ -9,7 +9,7 @@ library identifier: 'mylibraryname@main',
 
 //@Library('myJenkinSharedLib')_
 
-import static org.utils.PipelineUtils.*
+//import static org.utils.PipelineUtils.*
 
 pipeline {
     agent any
