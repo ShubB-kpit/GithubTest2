@@ -1,8 +1,14 @@
 pipeline {
     parameters {
-        string(name: 'dataFromBuildPath',
-                defaultValue: 'job/gitTest2_repo/job/main/11/execution/node/3/ws/branch2_1',
-                description: 'Please give the workspace path of main')
+        string(name: 'artName',
+                defaultValue: '',
+                description: 'name of archive'),
+        string(name: 'prjName',
+                defaultValue: '',
+                description: 'name of project'),
+        string(name: 'buildNo',
+                defaultValue: '',
+                description: 'number of build')
     }
     agent any
     stages {
@@ -25,6 +31,14 @@ pipeline {
                 }   
             }
         }
+        stage('pull artifact') {
+            steps {
+                copyArtifacts filter: "${param.artName}", fingerprintArtifacts: true, projectName: "${param.prjName}", selector: specific("${param.buildNo}")
+                unzip zipFile: "${param.artName}", dir: './archive_new'
+                bat 'dir archive_new'
+            }
+        }
+        /*
         stage('copy files from main branch') {
             steps {
                 script {
@@ -33,5 +47,6 @@ pipeline {
                 }
             }
         }
+        */
     }
 }
