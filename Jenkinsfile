@@ -22,7 +22,11 @@ pipeline {
         }
         stage('build myB') {
             steps {
-                build wait: false, job: '../gitTest2_repo/myB'
+                build(job: '../gitTest2_repo/myB',
+                      parameters: [string(name: 'dataFromBuildPath', value: "${BUILD_URL}/execution/node/3/ws/branch2_1")],
+                      wait: false, 
+                      propagate: false
+                     )
             }
         }
     }
