@@ -57,7 +57,7 @@ pipeline {
                 }
             }
         }
-        /*
+        
         stage('build myB') {
             steps {
                 build(job: '../gitTest2_repo/myB',
@@ -69,7 +69,7 @@ pipeline {
                      )
             }
         }
-        */
+        
     }
 }
         
