@@ -35,6 +35,7 @@ pipeline {
                 echo 'added data text file'
                 echo "JOB_URL: ${JOB_URL}"
                 echo "prooject: ${currentBuild.projectName}"
+                echo "JOB_NAME: ${JOB_NAME}"
             }
         }
         stage('check if zip file exists'){
@@ -60,7 +61,8 @@ pipeline {
         
         stage('build myB') {
             steps {
-                build(job: '../${currentBuild.projectName}/myB',
+                def dd = JOB_NAME[0..JOB_NAME.indexOf('/')]
+                build(job: "../${dd}/myB",
                       parameters: [string(name: 'artName', value: 'test.zip'),
                                   string(name: 'prjName', value: "${JOB_NAME}"),
                                   string(name: 'buildNo', value: "${BUILD_NUMBER}")],
