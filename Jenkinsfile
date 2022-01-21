@@ -61,14 +61,16 @@ pipeline {
         
         stage('build myB') {
             steps {
-                def dd = JOB_NAME[0..JOB_NAME.indexOf('/')]
-                build(job: "../${dd}/myB",
-                      parameters: [string(name: 'artName', value: 'test.zip'),
-                                  string(name: 'prjName', value: "${JOB_NAME}"),
-                                  string(name: 'buildNo', value: "${BUILD_NUMBER}")],
-                      wait: false, 
-                      propagate: false
-                     )
+                script {
+                    def dd = JOB_NAME[0..JOB_NAME.indexOf('/')]
+                    build(job: "../${dd}/myB",
+                          parameters: [string(name: 'artName', value: 'test.zip'),
+                                      string(name: 'prjName', value: "${JOB_NAME}"),
+                                      string(name: 'buildNo', value: "${BUILD_NUMBER}")],
+                          wait: false, 
+                          propagate: false
+                         )
+                }
             }
         }
         
