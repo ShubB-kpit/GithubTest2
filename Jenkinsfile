@@ -42,7 +42,7 @@ pipeline {
                 script {
                     if(fileExists('./test.zip')) {
                         echo 'zip file exists'
-                        deleteFile('./test.zip')
+                        delFile 'test.zip'
                         echo 'deleted?'
                         sh('ls')
                     }
