@@ -1,13 +1,13 @@
-library identifier: 'mylibraryname@main',
+/*library identifier: 'mylibraryname@main',
     // 'mylibraryname' is just an identifier, it can be anything you like
     // 'master' refers to a valid git ref (branch)
     retriever: modernSCM([
       $class: 'GitSCMSource',
       remote: 'https://github.com/ShubB-kpit/myJenkinSharedLib.git'
 ])
+*/
 
-
-//@Library('myJenkinSharedLib')
+@Library('myJenkinSharedLib')_
 //import static org.utils.PipelineUtils.*
 
 
