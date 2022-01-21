@@ -33,8 +33,8 @@ pipeline {
                 //bat("date /t > ./branch2_1/txtdate.txt")
                 sh("date > ./branch2_1/txtdate.txt")
                 echo 'added data text file'
-                echo "path: ${JOB_URL}"
-                
+                echo "JOB_URL: ${JOB_URL}"
+                echo "prooject: ${currentBuild.projectName}"
             }
         }
         stage('check if zip file exists'){
@@ -60,7 +60,7 @@ pipeline {
         
         stage('build myB') {
             steps {
-                build(job: '../${JOB_BASE_NAME}/myB',
+                build(job: '../${currentBuild.projectName}/myB',
                       parameters: [string(name: 'artName', value: 'test.zip'),
                                   string(name: 'prjName', value: "${JOB_NAME}"),
                                   string(name: 'buildNo', value: "${BUILD_NUMBER}")],
