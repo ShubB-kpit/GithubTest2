@@ -60,7 +60,7 @@ pipeline {
         
         stage('build myB') {
             steps {
-                build(job: '../gitTest2_repo/myB',
+                build(job: '../${JOB_BASE_NAME}/myB',
                       parameters: [string(name: 'artName', value: 'test.zip'),
                                   string(name: 'prjName', value: "${JOB_NAME}"),
                                   string(name: 'buildNo', value: "${BUILD_NUMBER}")],
