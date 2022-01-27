@@ -39,9 +39,9 @@ pipeline {
                 bat 'dir archive_new'
                 */
                 script {
-                    bat 'dir /a:h /d'
+                    bat 'dir'
                     cleanWs()
-                    
+                    bat 'dir'
                 }
             }
         }
@@ -65,7 +65,7 @@ pipeline {
                        //sh "git checkout main"
                     
                     bat("git clone --branch main --single-branch https://github.com/ShubB-kpit/GithubTest.git")
-                    bat 'dir /a:h /d'
+                    bat 'dir'
                     
                 }
             }
