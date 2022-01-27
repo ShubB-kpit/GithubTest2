@@ -68,6 +68,7 @@ pipeline {
                         bat 'dir'
                         cd GithubTest
                         git log -1 --pretty=%B"""
+                    cleanWs()
                 }
             }
         }
