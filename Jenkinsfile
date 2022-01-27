@@ -11,6 +11,7 @@ pipeline {
                 script {
                     if(fileExists('./test.zip')) {
                         cleanWs()
+                        bat("mkdir branch2_1")
                     }
                 }
             }
