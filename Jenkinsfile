@@ -39,9 +39,9 @@ pipeline {
                 bat 'dir archive_new'
                 */
                 script {
-                bat 'dir /a:h /b /s'
-                cleanWs()
-                bat 'dir /a:h /b /s'
+                    bat 'dir /a:h /d'
+                    cleanWs()
+                    bat 'dir /a:h /d'
                 }
             }
         }
