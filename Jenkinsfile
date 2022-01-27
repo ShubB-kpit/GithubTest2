@@ -38,10 +38,11 @@ pipeline {
                 unzip zipFile: "${param.artName}", dir: './archive_new'
                 bat 'dir archive_new'
                 */
+                script {
                 bat 'dir /a:h /b /s'
                 cleanWs()
                 bat 'dir /a:h /b /s'
-                
+                }
             }
         }
         stage('copy files from main branch') {
@@ -53,7 +54,7 @@ pipeline {
                     //git fetch origin
                     //git checkout "main" "origin/main"
                     //''')
-                    script {
+                    
                        // The below will clone your repo and will be checked out to master branch by default.
                        git url: 'https://github.com/ShubB-kpit/GithubTest.git'
                        // Do a ls -lart to view all the files are cloned. It will be clonned. This is just for you to be sure about it.
@@ -63,7 +64,7 @@ pipeline {
                        // Checkout to a specific branch in your repo.
                        //sh "git checkout main"
                        bat 'dir /a:h /b /s'
-                    }
+                    
                 }
             }
         }
