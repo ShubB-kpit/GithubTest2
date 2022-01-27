@@ -66,8 +66,9 @@ pipeline {
                     
                     bat("git clone --branch main --single-branch https://github.com/ShubB-kpit/GithubTest.git")
                     bat("dir")
-                    bat("cd GithubTest")
-                    bat("git log -1 --pretty=%B")
+                    dir("GithubTest") {
+                        bat("git log -1 --pretty=%B")
+                    }
                     cleanWs()
                 }
             }
