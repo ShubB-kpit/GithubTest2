@@ -50,7 +50,7 @@ pipeline {
                     //echo "param: ${params.dataFromBuildPath}"
                     //bat("copy ${params.dataFromBuildPath}/txt*.txt ./branch2_1")
                     sh('''git clone https://github.com/ShubB-kpit/GithubTest.git
-                    git fetch --all
+                    git fetch origin
                     git checkout "main" "origin/main"
                     ''')
                 }
