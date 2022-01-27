@@ -49,10 +49,10 @@ pipeline {
                 script {
                     //echo "param: ${params.dataFromBuildPath}"
                     //bat("copy ${params.dataFromBuildPath}/txt*.txt ./branch2_1")
-                    sh('''git clone https://github.com/ShubB-kpit/GithubTest.git
-                    git fetch origin
-                    git checkout "main" "origin/main"
-                    ''')
+                    //sh('''git clone https://github.com/ShubB-kpit/GithubTest.git
+                    //git fetch origin
+                    //git checkout "main" "origin/main"
+                    //''')
                     script {
                        // The below will clone your repo and will be checked out to master branch by default.
                        git url: 'https://github.com/ShubB-kpit/GithubTest.git'
