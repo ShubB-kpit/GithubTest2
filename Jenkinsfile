@@ -20,8 +20,7 @@ pipeline {
             steps {
                 script {
                     if(fileExists('./test.zip')) {
-                        echo 'zip file exists'
-                        new File('./test.zip').delete()
+                        cleanWs()
                     }
                 }
             }
