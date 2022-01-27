@@ -6,6 +6,15 @@ pipeline {
                 echo 'Start of pipeline'
             }
         }
+        stage('check if zip file exists'){
+            steps {
+                script {
+                    if(fileExists('./test.zip')) {
+                        cleanWs()
+                    }
+                }
+            }
+        }
         stage('create samples files') {
             steps {
                 bat("cd > ./branch2_1/txtcd.txt")
@@ -16,15 +25,7 @@ pipeline {
                 
             }
         }
-        stage('check if zip file exists'){
-            steps {
-                script {
-                    if(fileExists('./test.zip')) {
-                        cleanWs()
-                    }
-                }
-            }
-        }
+        
         stage('Archive') {
             steps {
                 zip zipFile: 'test.zip', archive: false, dir: 'branch2_1'
