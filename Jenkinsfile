@@ -41,7 +41,7 @@ pipeline {
                 script {
                     bat 'dir /a:h /d'
                     cleanWs()
-                    bat 'dir /a:h /d'
+                    
                 }
             }
         }
