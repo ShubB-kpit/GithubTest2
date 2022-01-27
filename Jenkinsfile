@@ -38,9 +38,9 @@ pipeline {
                 unzip zipFile: "${param.artName}", dir: './archive_new'
                 bat 'dir archive_new'
                 */
-                sh 'ls'
+                bat 'dir /a:h /b /s'
                 cleanWs()
-                sh 'ls'
+                bat 'dir /a:h /b /s'
                 
             }
         }
@@ -62,6 +62,7 @@ pipeline {
                        //sh "git branch -a"
                        // Checkout to a specific branch in your repo.
                        //sh "git checkout main"
+                       bat 'dir /a:h /b /s'
                     }
                 }
             }
