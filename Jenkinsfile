@@ -41,17 +41,20 @@ pipeline {
                 sh 'ls'
                 cleanWs()
                 sh 'ls'
+                
             }
         }
-        /*
         stage('copy files from main branch') {
             steps {
                 script {
-                    echo "param: ${params.dataFromBuildPath}"
+                    //echo "param: ${params.dataFromBuildPath}"
                     //bat("copy ${params.dataFromBuildPath}/txt*.txt ./branch2_1")
+                    sh('''git clone https://github.com/ShubB-kpit/GithubTest.git
+                    git fetch --all
+                    git checkout "main" "origin/main"
+                    ''')
                 }
             }
         }
-        */
     }
 }
