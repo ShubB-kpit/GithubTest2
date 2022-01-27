@@ -38,9 +38,9 @@ pipeline {
                 unzip zipFile: "${param.artName}", dir: './archive_new'
                 bat 'dir archive_new'
                 */
-                bat 'ls'
+                sh 'ls'
                 clearWs()
-                bat 'ls'
+                sh 'ls'
             }
         }
         /*
