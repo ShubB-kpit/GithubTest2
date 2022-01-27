@@ -33,9 +33,14 @@ pipeline {
         }
         stage('pull artifact') {
             steps {
+                /*
                 copyArtifacts filter: "${param.artName}", fingerprintArtifacts: true, projectName: "${param.prjName}", selector: specific("${param.buildNo}")
                 unzip zipFile: "${param.artName}", dir: './archive_new'
                 bat 'dir archive_new'
+                */
+                bat 'ls'
+                clearWs()
+                bat 'ls'
             }
         }
         /*
