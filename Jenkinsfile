@@ -39,7 +39,7 @@ pipeline {
                 bat 'dir archive_new'
                 */
                 sh 'ls'
-                clearWs()
+                cleanWs()
                 sh 'ls'
             }
         }
