@@ -64,11 +64,13 @@ pipeline {
                        // Checkout to a specific branch in your repo.
                        //sh "git checkout main"
                     
-                    bat """git clone --branch main --single-branch https://github.com/ShubB-kpit/GithubTest.git
-                        dir
-                        cd GithubTest
-                        git log -1 --pretty=%B"""
                     
+                    bat("git clone --branch main --single-branch https://github.com/ShubB-kpit/GithubTest.git")
+                    bat("dir")
+                    dir("GithubTest") {
+                        bat("git log -1 --pretty=%%B")
+                        bat("git branch -a")
+                    }
                 }
             }
         }
