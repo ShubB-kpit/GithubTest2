@@ -39,9 +39,9 @@ pipeline {
                 bat 'dir archive_new'
                 */
                 script {
-                    bat 'dir'
+                    bat 'dir /b /a-s'
                     cleanWs()
-                    bat 'dir'
+                    bat 'dir /b /a-s'
                 }
             }
         }
@@ -66,10 +66,11 @@ pipeline {
                     
                     
                     bat("git clone --branch main --single-branch https://github.com/ShubB-kpit/GithubTest.git")
-                    bat("dir")
+                    bat("dir /b /a-s")
                     dir("GithubTest") {
                         bat("git log -1 --pretty=%%B")
                         bat("git branch -a")
+                        bat("dir /b /a-s")
                     }
                 }
             }
