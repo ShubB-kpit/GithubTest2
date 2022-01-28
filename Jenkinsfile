@@ -65,7 +65,7 @@ pipeline {
                        //sh "git checkout main"
                     
                     
-                    bat("git clone --branch branch2 --single-branch https://github.com/ShubB-kpit/GithubTest.git")
+                    bat("git clone --branch testb2 --single-branch https://github.com/ShubB-kpit/GithubTest.git")
                     bat("dir /b /a-s")
                     dir("GithubTest") {
                         bat("git log -1 --pretty=%%B")
